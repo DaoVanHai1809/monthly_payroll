@@ -100,7 +100,7 @@ export class AppService {
       const file = await service.files.create({
         resource: {
           name: `${('0' + month).slice(-2)} - ${year}`,
-          parents: ['1unA64raW0ILRDC8yiOyorFGg5xTqffZQ'],
+          parents: [`${process.env.FOLDER_DRIVE_ID}`],
           mimeType: 'application/vnd.google-apps.spreadsheet',
         },
       } as any);
@@ -190,7 +190,7 @@ export class AppService {
       batch.push({
         range: `${employee['sheetName']}!A1:A3`,
         values: [
-          ['CÔNG TY TNHH LISOD VIỆT NAM'],
+          ['CHẤM CÔNG'],
           [`Mã số nhân viên (${employee.emp_id}): ${employee.name}`],
           [`Bảng chấm công tháng ${month}-${year}`],
         ],
